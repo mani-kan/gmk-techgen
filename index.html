@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SUPRIZO | GMK TechGen IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ===== PREMIUM GLASS EFFECT ===== */
+.glow-line{
+width:120px;
+height:4px;
+background:var(--gradient);
+border-radius:20px;
+margin:18px auto 0;
+box-shadow:0 0 20px rgba(0,198,255,0.6);
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle, rgba(0,198,255,0.18), transparent 70%);
+right:-120px;
+top:-120px;
+filter:blur(20px);
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:400px;
+height:400px;
+background:radial-gradient(circle, rgba(123,47,247,0.16), transparent 70%);
+left:-100px;
+bottom:-120px;
+filter:blur(20px);
+}
+
+.shine-btn{
+position:relative;
+overflow:hidden;
+}
+
+.shine-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+transition:0.8s;
+}
+
+.shine-btn:hover::before{
+left:120%;
+}
+
+.product-highlight{
+margin-top:80px;
+background:linear-gradient(135deg,#09111f,#111f3c);
+padding:50px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.product-highlight::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(0,198,255,0.08),rgba(123,47,247,0.08));
+}
+
+.product-highlight h2{
+position:relative;
+font-size:52px;
+font-family:'Syne',sans-serif;
+margin-bottom:20px;
+}
+
+.product-highlight p{
+position:relative;
+color:var(--sub);
+max-width:800px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+}
+
+.product-highlight .btn{
+margin-top:30px;
+position:relative;
+}
+
+.instagram-banner{
+margin-top:70px;
+padding:30px;
+background:linear-gradient(135deg,#1a1036,#2b0e4d,#3a105f);
+border-radius:24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.instagram-banner h3{
+font-size:32px;
+font-family:'Syne',sans-serif;
+}
+
+.instagram-banner p{
+color:#d9d9f1;
+margin-top:10px;
+line-height:1.8;
+}
+
+.instagram-banner .insta-btn{
+background:white;
+color:#111;
+font-weight:800;
+padding:16px 28px;
+border-radius:50px;
+text-decoration:none;
+}
+
+.floating-blur{
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(0,198,255,0.15);
+filter:blur(70px);
+border-radius:50%;
+z-index:0;
+}
+
+:root{
+--bg:#050816;
+--card:#0d1427;
+--card2:#101c35;
+--accent:#00c6ff;
+--accent2:#7b2ff7;
+--text:#f4f7ff;
+--sub:#9eb0d1;
+--border:rgba(255,255,255,0.08);
+--gradient:linear-gradient(135deg,#00c6ff,#0072ff,#7b2ff7);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+background:var(--bg);
+font-family:'DM Sans',sans-serif;
+color:var(--text);
+overflow-x:hidden;
+}
+html{scroll-behavior:smooth}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+section{padding:100px 0}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+pointer-events:none;
+background-image: radial-gradient(circle at 20% 20%, rgba(0,198,255,0.08), transparent 20%), radial-gradient(circle at 80% 80%, rgba(123,47,247,0.08), transparent 20%);
+z-index:-1;
+}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+backdrop-filter:blur(18px);
+background:rgba(5,8,22,0.75);
+border-bottom:1px solid var(--border);
+}
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+.logo{
+font-family:'Syne',sans-serif;
+font-size:28px;
+font-weight:800;
+background:var(--gradient);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.nav-links{
+display:flex;
+gap:30px;
+}
+.nav-links a{
+color:var(--sub);
+text-decoration:none;
+font-size:15px;
+transition:.3s;
+}
+.nav-links a:hover{color:white}
+.btn{
+padding:14px 28px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+display:inline-flex;
+align-items:center;
+gap:10px;
+transition:.4s;
+}
+.btn-primary{
+background:var(--gradient);
+color:white;
+box-shadow:0 10px 35px rgba(0,114,255,0.35);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02)}
+.btn-outline{
+border:1px solid var(--accent);
+color:var(--accent);
+}
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+}
+.badge{
+display:inline-block;
+padding:8px 18px;
+border-radius:50px;
+background:rgba(0,198,255,0.08);
+border:1px solid rgba(0,198,255,0.25);
+color:var(--accent);
+margin-bottom:25px;
+}
+.hero h1{
+font-family:'Syne',sans-serif;
+font-size:70px;
+line-height:1.05;
+margin-bottom:24px;
+}
+.gradient{
+background:var(--gradient);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.hero p{
+color:var(--sub);
+font-size:18px;
+line-height:1.8;
+margin-bottom:35px;
+}
+.hero-btns{display:flex;gap:18px;flex-wrap:wrap}
+.hero-image{
+position:relative;
+}
+.hero-image img{
+width:100%;
+border-radius:30px;
+box-shadow:0 30px 80px rgba(0,0,0,0.5);
+}
+.float-card{
+position:absolute;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+padding:18px 22px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+}
+.card1{bottom:30px;left:-30px}
+.card2{top:40px;right:-30px}
+.section-title{
+font-family:'Syne',sans-serif;
+font-size:48px;
+margin-bottom:18px;
+text-align:center;
+}
+.section-sub{
+text-align:center;
+max-width:700px;
+margin:auto auto 60px;
+color:var(--sub);
+line-height:1.8;
+}
+.grid-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:24px;
+overflow:hidden;
+transition:.5s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,198,255,0.18),0 0 60px rgba(123,47,247,0.18);
+}
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+.card-body{padding:24px}
+.tag{
+display:inline-block;
+padding:6px 14px;
+border-radius:50px;
+background:rgba(0,198,255,0.08);
+color:var(--accent);
+font-size:12px;
+margin-bottom:14px;
+}
+.card h3{
+font-family:'Syne',sans-serif;
+margin-bottom:12px;
+font-size:24px;
+}
+.card p{
+color:var(--sub);
+line-height:1.7;
+}
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:60px;
+}
+.stat{
+background:var(--card2);
+padding:30px;
+text-align:center;
+border-radius:20px;
+border:1px solid var(--border);
+}
+.stat h2{
+font-size:46px;
+font-family:'Syne',sans-serif;
+background:var(--gradient);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.review{
+padding:35px;
+}
+.review-stars{color:#ffd700;margin-bottom:14px}
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+.contact-box{
+background:var(--card);
+padding:40px;
+border-radius:24px;
+border:1px solid var(--border);
+}
+.contact-item{display:flex;gap:15px;margin-bottom:25px}
+.contact-item i{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:rgba(0,198,255,0.08);
+color:var(--accent);
+}
+input,textarea{
+width:100%;
+padding:16px;
+background:#081120;
+border:1px solid var(--border);
+color:white;
+border-radius:14px;
+margin-bottom:18px;
+}
+textarea{min-height:140px}
+footer{
+padding:40px 0;
+text-align:center;
+border-top:1px solid var(--border);
+color:var(--sub);
+}
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#25d366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+box-shadow:0 10px 40px rgba(37,211,102,0.5);
+animation:pulse 2s infinite;
+z-index:1000;
+}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
+}
+@media(max-width:900px){
+.hero-grid,.contact-grid,.grid-3,.stats{
+grid-template-columns:1fr;
+}
+.hero h1{font-size:48px}
+.nav-links{display:none}
+.hero-image{margin-top:40px}
+.card1,.card2{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-inner">
+<div class="logo">SUPRIZO||GMK TECHGEN IT SOLUTIONS </div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#services">Services</a>
+<a href="#posters">Posters</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+<a href="#contact" class="btn btn-primary">Order Premium Gifts</a>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="badge"><i class="fas fa-crown"></i> Premium Personalized Surprise Brand Across India</div>
+<h1>
+Turning Emotions Into <span class="gradient">Digital Memories</span>
+</h1>
+<p>
+SUPRIZO by GMK TechGen creates unforgettable emotional experiences with premium QR Memory Cards, Spotify Music Frames, Surprise Websites, Couple Gifts, Digital Invitations, and luxury customized creations designed to make every moment unforgettable.
+</p>
+<div class="hero-btns">
+<a href="#products" class="btn btn-primary shine-btn"><i class="fas fa-gift"></i> Explore Products</a>
+<a href="#contact" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Contact Us</a>
+</div>
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&auto=format&fit=crop">
+<div class="float-card card1">
+<h4>QR Memory Cards</h4>
+<p style="color:#cfd8ea;font-size:13px">Trending Surprise Product</p>
+</div>
+<div class="float-card card2">
+<h4>Premium Websites</h4>
+<p style="color:#cfd8ea;font-size:13px">Birthday & Love Websites</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="products">
+<div class="container">
+<h2 class="section-title">Trending <span class="gradient">SUPRIZO Products</span></h2>
+<div class="glow-line"></div>
+<p class="section-sub">Creative surprise gifts designed for birthdays, anniversaries, friendships, and unforgettable moments.</p>
+
+<div class="grid-3">
+
+<div class="card">
+<img src="4.jpeg">
+<div class="card-body">
+<div class="tag">Best Seller</div>
+<h3>Spotify Music Frames</h3>
+<p>Customized Spotify style frames with photos, favorite songs, QR scans, and premium designs.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="3.jpeg">
+<div class="card-body">
+<div class="tag">Trending</div>
+<h3>QR Memory Cards</h3>
+<p>Scan and relive beautiful memories instantly using premium customized QR memory cards.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="2.jpeg">
+<div class="card-body">
+<div class="tag">Premium</div>
+<h3>Surprise Websites</h3>
+<p>Animated birthday and love websites with music, galleries, reels, memories, and effects.</p>
+</div>
+</div>
+
+</div>
+</div>
+<div class="container">
+<div class="product-highlight">
+<div class="floating-blur" style="top:-60px;left:-60px"></div>
+<div class="floating-blur" style="bottom:-60px;right:-60px;background:rgba(123,47,247,0.15)"></div>
+<h2>India's Premium Customized Surprise Brand ✨</h2>
+<p>
+From emotional QR Memory Cards to luxury Spotify Frames and cinematic Surprise Websites, SUPRIZO transforms your memories into unforgettable experiences with premium quality and stunning creativity.
+</p>
+<a href="https://wa.me/916303973393" class="btn btn-primary shine-btn">Book Your Surprise Now</a>
+</div>
+</div>
+</section>
+
+<section id="services" style="background:#0a1122">
+<div class="container">
+<h2 class="section-title">Our <span class="gradient">Services</span></h2>
+<div class="glow-line"></div>
+<p class="section-sub">Industry-level creative and digital solutions for students, startups, creators, and businesses.</p>
+
+<div class="grid-3">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=700&auto=format&fit=crop">
+<div class="card-body">
+<h3>Web Development</h3>
+<p>Modern premium websites with animations, responsive design, and startup-style UI.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&auto=format&fit=crop">
+<div class="card-body">
+<h3>DTP and Designing</h3>
+<p>Typing works, Poster Design,Etc...</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&auto=format&fit=crop">
+<div class="card-body">
+<h3>Student Projects</h3>
+<p>ALL B.Tech, MCA,BCA,Bsc IOT and AI,ML,DL,Quantum Computing, FullStack Projects .</p>
+</div>
+</div>
+
+</div>
+
+<div class="stats">
+<div class="stat">
+<h2>100%</h2>
+<p>Customized Designs</p>
+</div>
+<div class="stat">
+<h2>Fast</h2>
+<p>All India Delivery</p>
+</div>
+<div class="stat">
+<h2>Premium</h2>
+<p>Industry Quality Products</p>
+</div>
+<div class="stat">
+<h2>24/7</h2>
+<p>Customer Support</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="posters">
+<div class="container">
+<h2 class="section-title">Creative <span class="gradient">Poster Showcase</span></h2>
+<div class="glow-line"></div>
+<p class="section-sub">Instagram-ready premium marketing posters for SUPRIZO products and campaigns.</p>
+
+<div class="grid-3">
+
+<div class="card">
+<img src="1.png">
+<div class="card-body">
+<div class="tag">Instagram Campaign</div>
+<h3>QR Memory Card Poster</h3>
+<p>Premium social media advertisement design for personalized memory gifts.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="4.jpeg">
+<div class="card-body">
+<div class="tag">Love Special</div>
+<h3>Spotify Frame Promotion</h3>
+<p>Modern romantic promotional campaign design for surprise gift products.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="2.jpeg">
+<div class="card-body">
+<div class="tag">Birthday Special</div>
+<h3>Surprise Website Ad</h3>
+<p>Luxury animated birthday website advertisement creative for reels and stories.</p>
+</div>
+</div>
+
+</div>
+</div>
+<div class="container">
+<div class="instagram-banner">
+<div>
+<h3>Follow Our Premium Creations 🚀</h3>
+<p>
+Daily surprise gift ideas, premium posters, reels, client works, and trending customized products available on Instagram.
+</p>
+</div>
+<a href="https://instagram.com/gandivalasa_manikanta" target="_blank" class="insta-btn">@gandivalasa_manikanta</a>
+</div>
+</div>
+</section>
+
+<section id="reviews" style="background:#0a1122">
+<div class="container">
+<h2 class="section-title">Client <span class="gradient">Reviews</span></h2>
+<div class="glow-line"></div>
+<p class="section-sub">People love SUPRIZO because every product is made with creativity and emotion.</p>
+
+<div class="grid-3">
+
+<div class="card review">
+<div class="review-stars">★★★★★</div>
+<p>"QR Memory Card quality super undi. Delivery fast ga vachindi and design amazing."</p>
+<br>
+<strong>- Rahul</strong>
+</div>
+
+<div class="card review">
+<div class="review-stars">★★★★★</div>
+<p>"Birthday website chala premium ga design chesaru. My friend emotional ayindi."</p>
+<br>
+<strong>- Swetha</strong>
+</div>
+
+<div class="card review">
+<div class="review-stars">★★★★★</div>
+<p>"Best customized surprise gift brand. Posters and branding kuda next level."</p>
+<br>
+<strong>- Kiran</strong>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2 class="section-title">Let's Create <span class="gradient">Something Special</span></h2>
+<div class="glow-line"></div>
+<p class="section-sub">Contact SUPRIZO for customized gifts, websites, posters, and digital solutions.</p>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+<div class="contact-item">
+<i class="fas fa-phone"></i>
+<div>
+<h3>Phone</h3>
+<p style="color:var(--sub)">+91 63039 73393</p>
+</div>
+</div>
+
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<div>
+<h3>Email</h3>
+<p style="color:var(--sub)">mani1873gmk@gmail.com</p>
+</div>
+</div>
+
+<div class="contact-item">
+<i class="fas fa-location-dot"></i>
+<div>
+<h3>Location</h3>
+<p style="color:var(--sub)">Srikakulam, Andhra Pradesh</p>
+</div>
+</div>
+
+<div class="contact-item">
+<i class="fab fa-instagram"></i>
+<div>
+<h3>Instagram</h3>
+<p style="color:var(--sub)">@gandivalasa_manikanta</p>
+</div>
+</div>
+</div>
+
+<div class="contact-box">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<input type="text" placeholder="Phone Number">
+<textarea placeholder="Tell us about your requirement..."></textarea>
+<a href="#" class="btn btn-primary" style="width:100%;justify-content:center">Send Message</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<h2 class="logo" style="margin-bottom:12px">SUPRIZO</h2>
+<p>Powered by GMK TechGen IT Solutions © 2026</p>
+</div>
+</footer>
+
+<a href="https://wa.me/916303973393" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
